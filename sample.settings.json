@@ -1,0 +1,9 @@
+{
+    "MinIO": {
+        "AccessKey": "<accesskey>",
+        "SecretKey": "<secretkey>",
+        "ServiceURL": "http://localhost:9000",
+        "Region": "eu-west-1",
+        "Bucket": "kfc"
+    }
+}
