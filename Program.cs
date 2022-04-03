@@ -34,13 +34,13 @@ namespace s3.test
             byte[] data = Encoding.UTF8.GetBytes($"We do chicken right {DateTime.Now}.");
             using (MemoryStream ms = new(data))
             {
-                var result = await amazonS3Client.CopyFileAsync(bucket, fileName, ms);
+                var result = await amazonS3Client.UploadToAsync(bucket, fileName, ms);
             }
 
             // Read file
             using (MemoryStream ms = new())
             {
-                var result = await amazonS3Client.DownloadFileAsync(bucket, fileName, ms);
+                var result = await amazonS3Client.DownloadToAsync(bucket, fileName, ms);
                 var content = Encoding.UTF8.GetString(ms.ToArray());
                 Console.WriteLine(content);
             }
@@ -67,10 +67,7 @@ namespace s3.test
             }
 
             // Remove file
-            if (await amazonS3Client.ExistsAsync(bucket, fileName))
-            {
-                await amazonS3Client.DeleteAsync(bucket, fileName);
-            }
+            await amazonS3Client.DeleteIfExistsAsync(bucket, fileName);
         }
     }
 }

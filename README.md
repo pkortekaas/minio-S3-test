@@ -20,7 +20,7 @@ RootPass: minioadmin
 ````
 - Use a browser to open the Console at http://127.0.0.1:9001
 - Create the Bucket to be used
-- Create a User
-- Select this User, create a Service Account and make sure you have a readwrite Policy
+- Create a User, and make sure you have a readwrite Policy
+- You can use user credentials, or create a Service Account
 - Check the Settings->Configurations for the proper Server Location, e.g. eu-west-1
 - copy sample.settings.json to setting.json and check the required MinIO settings
